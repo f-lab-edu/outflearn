@@ -1,6 +1,7 @@
 package kr.flab.outflearn.course.domain.repository
 
 import kr.flab.outflearn.course.domain.Answer
+import kr.flab.outflearn.course.domain.Course
 import kr.flab.outflearn.course.domain.Question
 import kr.flab.outflearn.member.domain.Member
 import kr.flab.outflearn.member.domain.repository.MemberRepository
@@ -22,6 +23,9 @@ internal class AnswerRepositoryTest {
     lateinit var answerRepository: AnswerRepository
 
     @Autowired
+    lateinit var courseRepository: CourseRepository
+
+    @Autowired
     lateinit var questionRepository: QuestionRepository
 
     @Autowired
@@ -40,15 +44,17 @@ internal class AnswerRepositoryTest {
         val member = Member("member")
         val student = Student("student", member)
         val teacher = Teacher("teacher", member)
+        val course = Course("course", 3000, teacher)
         val question = Question("질문", "내용", student)
 
         memberRepository.save(member)
         studentRepository.save(student)
         teacherRepository.save(teacher)
+        courseRepository.save(course)
         questionRepository.save(question)
 
         val content = "content"
-        val answer = Answer(content = content, question = question, teacher = teacher)
+        val answer = Answer(content = content, course = course, question = question)
 
         // when
         answerRepository.save(answer)

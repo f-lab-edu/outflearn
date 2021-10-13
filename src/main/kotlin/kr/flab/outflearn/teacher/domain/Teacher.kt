@@ -1,18 +1,18 @@
 package kr.flab.outflearn.teacher.domain
 
 import kr.flab.outflearn.member.domain.Member
-import javax.persistence.*
+import kr.flab.outflearn.support.AbstractEntity
+import javax.persistence.Entity
+import javax.persistence.FetchType
+import javax.persistence.OneToOne
 
 @Entity
 class Teacher(
+    var nickname: String,
 
-    var name: String,
-
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     var member: Member,
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null
-) {
-
+    id: Long? = null
+) : AbstractEntity(id) {
 }

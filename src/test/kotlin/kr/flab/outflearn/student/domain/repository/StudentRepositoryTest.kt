@@ -35,6 +35,6 @@ internal class StudentRepositoryTest {
 
         // then
         assertThat(student.id).isNotNull
-        assertThat(student.name).isEqualTo(studentName)
+        assertThat(student.nickname).isEqualTo(studentName)
     }
 }

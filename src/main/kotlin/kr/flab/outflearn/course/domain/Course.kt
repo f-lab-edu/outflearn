@@ -1,5 +1,6 @@
 package kr.flab.outflearn.course.domain
 
+import kr.flab.outflearn.support.AbstractEntity
 import kr.flab.outflearn.teacher.domain.Teacher
 import javax.persistence.*
 
@@ -13,7 +14,6 @@ class Course(
     @ManyToOne(fetch = FetchType.LAZY)
     var teacher: Teacher,
 
-    @Id @GeneratedValue
-    var id: Long? = null
-) {
+    id: Long? = null
+) : AbstractEntity(id) {
 }

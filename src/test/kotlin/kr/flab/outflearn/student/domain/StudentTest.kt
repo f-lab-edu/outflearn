@@ -17,6 +17,6 @@ internal class StudentTest {
 
         // then
         assertThat(student.id).isNull()
-        assertThat(student.name).isEqualTo(name)
+        assertThat(student.nickname).isEqualTo(name)
     }
 }

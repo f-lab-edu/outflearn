@@ -1,8 +1,7 @@
 package kr.flab.outflearn.course.domain
 
-import kr.flab.outflearn.member.domain.Member
-import kr.flab.outflearn.student.domain.Student
-import kr.flab.outflearn.teacher.domain.Teacher
+import kr.flab.outflearn.createCourse
+import kr.flab.outflearn.createQuestion
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
@@ -12,14 +11,10 @@ internal class AnswerTest {
     @Test
     fun `답변 남기기`() {
         // given
-        val member = Member("member")
-        val student = Student("student", member)
-        val teacher = Teacher("teacher", member)
-        val question = Question("title", "content", student)
+        val content = "content"
 
         // when
-        val content = "content"
-        val answer = Answer(question = question, content = content, teacher = teacher)
+        val answer = Answer(content, createCourse(), createQuestion())
 
         // then
         assertThat(answer.id).isNull();
