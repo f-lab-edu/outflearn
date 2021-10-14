@@ -6,8 +6,7 @@ import javax.persistence.*
 
 @Entity
 class Course(
-
-    var name: String,
+    var title: String,
 
     var fee: Int,
 

@@ -7,7 +7,6 @@ import javax.persistence.*
 
 @Entity
 class Enroll(
-
     @ManyToOne(fetch = FetchType.LAZY)
     var student: Student,
 

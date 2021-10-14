@@ -24,7 +24,6 @@ internal class CourseRepositoryTest {
     @Autowired
     lateinit var teacherRepository: TeacherRepository
 
-
     @Test
     fun `강의 저장하기`() {
         // given
@@ -45,7 +44,7 @@ internal class CourseRepositoryTest {
 
         // then
         assertThat(course.id).isNotNull
-        assertThat(course.name).isEqualTo(courseName)
+        assertThat(course.title).isEqualTo(courseName)
         assertThat(course.fee).isEqualTo(fee)
     }
 

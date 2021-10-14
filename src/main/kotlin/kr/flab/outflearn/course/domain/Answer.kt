@@ -1,12 +1,12 @@
 package kr.flab.outflearn.course.domain
 
 import kr.flab.outflearn.support.AbstractEntity
-import kr.flab.outflearn.teacher.domain.Teacher
-import javax.persistence.*
+import javax.persistence.Entity
+import javax.persistence.FetchType
+import javax.persistence.OneToOne
 
 @Entity
 class Answer(
-
     var content: String,
 
     @OneToOne(fetch = FetchType.LAZY)

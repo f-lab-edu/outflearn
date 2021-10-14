@@ -20,7 +20,7 @@ internal class CourseTest {
 
         // then
         assertThat(course.id).isNull()
-        assertThat(course.name).isEqualTo(courseName)
+        assertThat(course.title).isEqualTo(courseName)
         assertThat(course.fee).isEqualTo(coursePrice)
     }
 }
