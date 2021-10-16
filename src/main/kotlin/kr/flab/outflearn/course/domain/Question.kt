@@ -13,6 +13,9 @@ class Question(
     @ManyToOne(fetch = FetchType.LAZY)
     var student: Student,
 
+    @ManyToOne
+    var course: Course,
+
     id: Long? = null
 ) : AbstractEntity(id) {
 }
