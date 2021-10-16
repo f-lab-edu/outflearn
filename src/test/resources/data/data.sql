@@ -16,6 +16,3 @@ INSERT INTO course (id, title, fee, teacher_id) values
 (101, '멘토링101', 30000, 201),
 (102, '멘토링102', 30000, 202);
 
-INSERT INTO enroll (id, student_id, course_id, status) values
-(101, 101, 101, 'REGISTERED'),
-(102, 101, 102, 'REGISTERED');
