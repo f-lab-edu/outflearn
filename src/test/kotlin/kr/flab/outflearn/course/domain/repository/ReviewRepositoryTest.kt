@@ -40,7 +40,7 @@ internal class ReviewRepositoryTest {
         val member = Member("member")
         val student = Student("student", member)
         val teacher = Teacher("teacher", member)
-        val course = Course("course", 30000, teacher)
+        val course = Course(title = "title", fee = 30000, teacher = teacher)
 
         memberRepository.save(member)
         studentRepository.save(student)

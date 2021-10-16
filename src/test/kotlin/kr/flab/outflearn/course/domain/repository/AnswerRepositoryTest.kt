@@ -44,8 +44,8 @@ internal class AnswerRepositoryTest {
         val member = Member("member")
         val student = Student("student", member)
         val teacher = Teacher("teacher", member)
-        val course = Course("course", 3000, teacher)
-        val question = Question("질문", "내용", student)
+        val course = Course(title = "title", fee = 3000, teacher = teacher)
+        val question = Question("질문", "내용", student, course)
 
         memberRepository.save(member)
         studentRepository.save(student)

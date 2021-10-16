@@ -14,13 +14,13 @@ internal class CourseTest {
         val teacher = Teacher("teacher", member)
 
         // when
-        val courseName = "멘토링"
-        val coursePrice = 3000
-        val course = Course(courseName, coursePrice, teacher)
+        val title = "멘토링"
+        val fee = 3000
+        val course = Course(title = title, fee = fee, teacher = teacher)
 
         // then
         assertThat(course.id).isNull()
-        assertThat(course.title).isEqualTo(courseName)
-        assertThat(course.fee).isEqualTo(coursePrice)
+        assertThat(course.title).isEqualTo(title)
+        assertThat(course.fee).isEqualTo(fee)
     }
 }
