@@ -1,5 +1,6 @@
 package kr.flab.outflearn.course.domain
 
+import kr.flab.outflearn.createMember
 import kr.flab.outflearn.member.domain.Member
 import kr.flab.outflearn.teacher.domain.Teacher
 import org.assertj.core.api.Assertions.*
@@ -10,7 +11,7 @@ internal class CourseTest {
     @Test
     fun `강의 생성하기`() {
         // given
-        val member = Member("member")
+        val member = createMember()
         val teacher = Teacher("teacher", member)
 
         // when

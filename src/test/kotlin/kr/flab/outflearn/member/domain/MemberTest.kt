@@ -9,9 +9,11 @@ internal class MemberTest {
     fun `회원 생성하기`() {
         // given
         val name = "flab"
+        val email = "flab@email.co.kr"
+        val password = "12345678"
 
         // when
-        val member = Member(name)
+        val member = Member(name, email, password)
 
         // then
         assertThat(member.id).isNull()

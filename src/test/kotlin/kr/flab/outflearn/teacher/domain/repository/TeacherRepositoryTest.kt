@@ -1,5 +1,6 @@
 package kr.flab.outflearn.teacher.domain.repository
 
+import kr.flab.outflearn.createMember
 import kr.flab.outflearn.member.domain.Member
 import kr.flab.outflearn.member.domain.repository.MemberRepository
 import kr.flab.outflearn.teacher.domain.Teacher
@@ -22,7 +23,7 @@ internal class TeacherRepositoryTest {
     @Test
     fun `강사 저장하기`() {
         // given
-        val member = Member("member")
+        val member = createMember()
         memberRepository.save(member)
         val name = "teacher"
         val teacher = Teacher(name, member)

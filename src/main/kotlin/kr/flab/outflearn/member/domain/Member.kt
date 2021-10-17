@@ -7,6 +7,10 @@ import javax.persistence.Entity
 class Member(
     var name: String,
 
+    var email: String,
+
+    var password: String,
+
     id: Long? = null
 ) : AbstractEntity(id) {
 }

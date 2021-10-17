@@ -18,7 +18,9 @@ internal class MemberRepositoryTest {
     fun `회원 저장하기`() {
         // given
         val name = "flab"
-        val member = Member(name)
+        val email = "flab@email.co.kr"
+        val password = "12345678"
+        val member = Member(name, email, password)
         assertThat(member.id).isNull()
 
         // when
