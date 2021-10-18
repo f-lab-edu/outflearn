@@ -42,7 +42,7 @@ internal class AnswerRepositoryTest {
     @Test
     fun `답변 저장하기`() {
         // given
-        val member = createMember()
+        val member = Member("flab", "flab@gmail.com", "12345678")
         val student = Student("student", member)
         val teacher = Teacher("teacher", member)
         val course = Course(title = "title", fee = 3000, teacher = teacher)

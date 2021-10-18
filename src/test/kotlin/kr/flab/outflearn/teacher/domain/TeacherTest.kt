@@ -17,7 +17,7 @@ internal class TeacherTest {
 
         // then
         assertThat(teacher.id).isNull()
-        assertThat(teacher.member.name).isEqualTo(nickname)
+        assertThat(teacher.nickname).isEqualTo(nickname)
     }
     
 }

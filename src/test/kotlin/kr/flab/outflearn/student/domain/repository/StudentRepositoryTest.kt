@@ -23,7 +23,7 @@ internal class StudentRepositoryTest {
     @Test
     fun `학생 저장하기`() {
         // given
-        val member = createMember()
+        val member = Member("flab", "flab@gmail.com", "12345678")
         memberRepository.save(member)
 
         val studentName = "student"

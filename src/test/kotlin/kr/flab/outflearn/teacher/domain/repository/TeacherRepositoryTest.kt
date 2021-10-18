@@ -4,7 +4,7 @@ import kr.flab.outflearn.createMember
 import kr.flab.outflearn.member.domain.Member
 import kr.flab.outflearn.member.domain.repository.MemberRepository
 import kr.flab.outflearn.teacher.domain.Teacher
-import org.assertj.core.api.Assertions.*
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
@@ -23,7 +23,7 @@ internal class TeacherRepositoryTest {
     @Test
     fun `강사 저장하기`() {
         // given
-        val member = createMember()
+        val member = Member("flab", "flab@gmail.com", "12345678")
         memberRepository.save(member)
         val name = "teacher"
         val teacher = Teacher(name, member)
@@ -39,4 +39,3 @@ internal class TeacherRepositoryTest {
         assertThat(teacher.nickname).isEqualTo(name)
     }
 }
-
