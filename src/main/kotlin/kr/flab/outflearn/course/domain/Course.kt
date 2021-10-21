@@ -9,13 +9,13 @@ import javax.persistence.*
 class Course(
     var title: String,
 
-    var fee: Int,
-
-    @OneToMany(mappedBy = "course")
-    var enrolls: MutableList<Enroll> = mutableListOf(),
+    var price: Int,
 
     @ManyToOne(fetch = FetchType.LAZY)
     var teacher: Teacher,
+
+    @OneToMany(mappedBy = "course")
+    var enrolls: MutableList<Enroll> = mutableListOf(),
 
     id: Long? = null
 ) : AbstractEntity(id) {

@@ -23,7 +23,7 @@ internal class CourseRepositoryTest {
         // given
         val title = "멘토링"
         val fee = 3000
-        val course = Course(title = title, fee = fee, teacher = createTeacher(member = createMember(id = 201), id = 201))
+        val course = Course(title = title, price = fee, teacher = createTeacher(member = createMember(id = 201), id = 201))
         assertThat(course.id).isNull()
 
         // when
@@ -33,7 +33,7 @@ internal class CourseRepositoryTest {
         // then
         assertThat(course.id).isNotNull
         assertThat(course.title).isEqualTo(title)
-        assertThat(course.fee).isEqualTo(fee)
+        assertThat(course.price).isEqualTo(fee)
     }
 
 }

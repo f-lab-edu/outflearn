@@ -3,7 +3,6 @@ package kr.flab.outflearn.course.domain.repository
 import kr.flab.outflearn.course.domain.Answer
 import kr.flab.outflearn.course.domain.Course
 import kr.flab.outflearn.course.domain.Question
-import kr.flab.outflearn.createMember
 import kr.flab.outflearn.member.domain.Member
 import kr.flab.outflearn.member.domain.repository.MemberRepository
 import kr.flab.outflearn.student.domain.Student
@@ -45,7 +44,7 @@ internal class AnswerRepositoryTest {
         val member = Member("flab", "flab@gmail.com", "12345678")
         val student = Student("student", member)
         val teacher = Teacher("teacher", member)
-        val course = Course(title = "title", fee = 3000, teacher = teacher)
+        val course = Course(title = "title", price = 3000, teacher = teacher)
         val question = Question("질문", "내용", student, course)
 
         memberRepository.save(member)

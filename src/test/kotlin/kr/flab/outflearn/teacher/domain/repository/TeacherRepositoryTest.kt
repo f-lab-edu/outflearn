@@ -1,6 +1,5 @@
 package kr.flab.outflearn.teacher.domain.repository
 
-import kr.flab.outflearn.createMember
 import kr.flab.outflearn.member.domain.Member
 import kr.flab.outflearn.member.domain.repository.MemberRepository
 import kr.flab.outflearn.teacher.domain.Teacher

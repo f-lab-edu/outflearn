@@ -12,7 +12,7 @@ fun createCourse(
     teacher: Teacher = createTeacher(),
     id: Long = 1L
 ): Course {
-    return Course(title = title, fee = 30000, teacher = teacher, id = id)
+    return Course(title = title, price = 30000, teacher = teacher, id = id)
 }
 
 fun createQuestion(
