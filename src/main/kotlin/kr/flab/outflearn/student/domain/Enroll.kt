@@ -14,7 +14,7 @@ class Enroll(
     var course: Course,
 
     @Enumerated(EnumType.STRING)
-    var status: EnrollStatus,
+    var status: EnrollStatus = EnrollStatus.REGISTERED,
 
     var registeredDateTime: LocalDateTime = LocalDateTime.now(),
 

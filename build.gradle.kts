@@ -42,6 +42,8 @@ dependencies {
     runtimeOnly("mysql:mysql-connector-java")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    testImplementation("com.ninja-squad:springmockk:2.0.3")
 }
 
 tasks.withType<KotlinCompile> {
