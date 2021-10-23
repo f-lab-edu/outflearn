@@ -1,6 +1,5 @@
-package kr.flab.outflearn.member.service
+package kr.flab.outflearn.student.service
 
-import kr.flab.outflearn.member.domain.MemberCreatedEvent
 import kr.flab.outflearn.student.domain.EnrollRegisteredEvent
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
@@ -8,32 +7,31 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.event.ApplicationEvents
 import org.springframework.test.context.event.RecordApplicationEvents
+import org.springframework.test.context.jdbc.Sql
+import org.springframework.transaction.annotation.Transactional
 
+@Sql("classpath:data/data.sql")
+@Transactional
 @RecordApplicationEvents
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
-internal class MemberServiceTest {
+internal class EnrollServiceTest {
     @Autowired
-    private lateinit var memberService: MemberService
+    lateinit var enrollService: EnrollService
 
     @Autowired
     lateinit var applicationEvents: ApplicationEvents
 
     @Test
-    fun `회원 가입 이벤트 발행`() {
+    fun `강의신청 시 이벤트 발행`() {
         // given
-        val name = "name"
-        val password = "12345678"
-        val email = "flab@mail.co.kr"
-        val memberCreateDto = MemberCreateDto(email, password, name)
+        val dto = EnrollRegisterDto(101L, 101L)
 
         // when
-        val member = memberService.createMember(memberCreateDto)
-        val count = applicationEvents.stream(MemberCreatedEvent::class.java).count()
+        val enroll = enrollService.registerEnroll(dto)
+        val count = applicationEvents.stream(EnrollRegisteredEvent::class.java).count()
 
         // then
-        assertThat(member.id).isNotNull;
-        assertThat(member.name).isEqualTo(name)
-        assertThat(member.email).isEqualTo(email)
+        assertThat(enroll.id).isNotNull
         assertThat(count).isEqualTo(1)
     }
 

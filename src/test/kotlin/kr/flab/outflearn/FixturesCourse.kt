@@ -10,9 +10,10 @@ import kr.flab.outflearn.teacher.domain.Teacher
 fun createCourse(
     title: String = "title",
     teacher: Teacher = createTeacher(),
+    price: Int = 30000,
     id: Long = 1L
 ): Course {
-    return Course(title = title, price = 30000, teacher = teacher, id = id)
+    return Course(title = title, price = price, teacher = teacher, id = id)
 }
 
 fun createQuestion(
