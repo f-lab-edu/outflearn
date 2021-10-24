@@ -1,5 +1,5 @@
 package kr.flab.outflearn.student.service
 
-data class StudentCreateDto(
+data class StudentGetOrCreateDto(
     var memberId: Long
 )

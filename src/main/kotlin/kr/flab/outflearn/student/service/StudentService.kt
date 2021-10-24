@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 interface StudentService {
-    fun createStudent(studentCreateDto: StudentCreateDto): Student
+    fun getOrCreateStudent(studentGetOrCreateDto: StudentGetOrCreateDto): Student
 }
 
 @Service
@@ -16,8 +16,14 @@ class DefaultStudentService(
     private val studentRepository: StudentRepository,
     private val memberRepository: MemberRepository
 ) : StudentService{
-    override fun createStudent(studentCreateDto: StudentCreateDto): Student {
-        val member = memberRepository.findById(studentCreateDto.memberId).get()
+    override fun getOrCreateStudent(studentGetOrCreateDto: StudentGetOrCreateDto): Student {
+        val member = memberRepository.findById(studentGetOrCreateDto.memberId).get()
+
+        val findStudent = studentRepository.findByMember(member)
+
+        if(findStudent.isPresent) {
+            return findStudent.get()
+        }
 
         val student = Student(member.name, member)
         return studentRepository.save(student)

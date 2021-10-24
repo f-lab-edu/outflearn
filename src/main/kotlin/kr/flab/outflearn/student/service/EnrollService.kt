@@ -21,8 +21,8 @@ class DefaultEnrollService(
     private val eventPublisher: ApplicationEventPublisher
 ) : EnrollService {
     override fun registerEnroll(enrollRegisterDto: EnrollRegisterDto): Enroll {
-        val studentCreateDto = StudentCreateDto(enrollRegisterDto.memberId)
-        val student = studentService.createStudent(studentCreateDto)
+        val studentCreateDto = StudentGetOrCreateDto(enrollRegisterDto.memberId)
+        val student = studentService.getOrCreateStudent(studentCreateDto)
 
         val course = courseRepository.findById(enrollRegisterDto.courseId).get()
 
