@@ -27,24 +27,27 @@ internal class EnrollRepositoryTest {
         val member = createMember(id = 101)
         val teacher201 = createTeacher(id = 201)
         val teacher202 = createTeacher(id = 202)
+        val course101 = createCourse(id = 101, teacher = teacher201)
+        val course102 = createCourse(id = 102, teacher = teacher202)
         val enroll101 = Enroll(
             createStudent(id = 101, member = member),
-            createCourse(id = 101, teacher = teacher201),
+            course101,
             EnrollStatus.REGISTERED
         )
         val enroll102 = Enroll(
             createStudent(id = 101, member = member),
-            createCourse(id = 102, teacher = teacher202),
+            course102,
             EnrollStatus.REGISTERED
         )
 
-        enrollRepository.saveAll(listOf(enroll101, enroll102));
+        enrollRepository.saveAll(listOf(enroll101, enroll102))
 
         // when
-        val findByStudent = enrollRepository.findByStudent(createStudent(id = 101))
+        val findEnroll = enrollRepository.findByStudent(createStudent(id = 101))
 
         // then
-        assertThat(findByStudent).hasSize(2)
-        assertThat(findByStudent).containsExactly(enroll101, enroll102)
+        assertThat(findEnroll).hasSize(2)
+        assertThat(findEnroll).containsExactly(enroll101, enroll102)
+        assertThat(findEnroll).extracting("course").contains(course101, course102)
     }
 }
