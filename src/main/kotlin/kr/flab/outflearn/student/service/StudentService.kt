@@ -15,17 +15,13 @@ interface StudentService {
 class DefaultStudentService(
     private val studentRepository: StudentRepository,
     private val memberRepository: MemberRepository
-) : StudentService{
+) : StudentService {
     override fun getOrCreateStudent(studentGetOrCreateDto: StudentGetOrCreateDto): Student {
-        val member = memberRepository.findById(studentGetOrCreateDto.memberId).get()
+        val member = memberRepository.getById(studentGetOrCreateDto.memberId)
 
-        val findStudent = studentRepository.findByMember(member)
-
-        if(findStudent.isPresent) {
-            return findStudent.get()
+        return studentRepository.findByMember(member) ?: run {
+            val student = Student(member.name, member)
+            studentRepository.save(student)
         }
-
-        val student = Student(member.name, member)
-        return studentRepository.save(student)
     }
 }
