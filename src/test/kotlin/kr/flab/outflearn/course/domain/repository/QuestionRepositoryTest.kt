@@ -23,6 +23,7 @@ internal class QuestionRepositoryTest {
     lateinit var questionRepository: QuestionRepository
 
     lateinit var student: Student
+
     lateinit var course: Course
 
     @BeforeEach
